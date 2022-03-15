@@ -14,3 +14,19 @@
 .success {
   color: green;
 }
+
+.delete {
+  display: inline;
+}
+
+.ordering_list a{
+  text-decoration: none;
+}
+
+.item_body_main_image {
+  width: 300px;
+}
+
+.item_body_main_image img{
+  width: 100%;
+}

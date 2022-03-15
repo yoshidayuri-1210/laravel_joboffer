@@ -1,10 +1,10 @@
 @extends('layouts.logged_in')
  
 @section('title', $title)
- 
+
 @section('content')
   <h1>{{ $title }}</h1>
-  <form method="post" action="{{ route('items.store') }}">
+  <form method="post" action="{{ route('items.store') }}" enctype="multipart/form-data">
       @csrf
     <div>業種:
         <label><input type="radio" name="type" value="1">調剤薬局</label>

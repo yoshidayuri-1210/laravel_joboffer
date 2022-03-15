@@ -6,36 +6,128 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Area;
 use App\Item;
+use App\Like;
+use App\User;
 use App\Http\Requests\ItemRequest;
+use App\Http\Requests\ItemImageRequest;
 
 class ItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     //TOPページ
     public function top()
-    {
+    {   
+        $user = \Auth::user();
+        $types = Item::TYPE;
+        $employments = Item::EMPLOYMENT;
+        
         return view('items.top', [
             'title' => '求人一覧.検索',
+            'area_ids' => Area::all(), 
+            'categories' => Category::all(),
+            'types' => $types, 
+            'employments' => $employments,
+            
+            // Itemsにあるスコープrecommendを利用
+            'recommend_category_items' => Item::recommend($user->category_id)->get(),
+            'recommend_area_items' => Item::recommendarea($user->area_id)->get(),
             ]);
     }
     
-    public function index(){
+    public function search(Request $request){
+        $items = Item::all();
+        $keyword = $request->input('keyword');
+        if(!empty($keyword)){
+            $items = Item::where('company_name', 'like', "%$keyword%")
+            ->orwhere('title', 'like', "%$keyword%")
+            ->orwhere('shop_name', 'like', "%$keyword%")
+            ->orwhere('shop_name', 'like', "%$keyword%")
+            ->orwhere('access', 'like', "%$keyword%")
+            ->orwhere('payment_min', 'like', "%$keyword%")
+            ->orwhere('payment_max', 'like', "%$keyword%")
+            ->orwhere('holiday', 'like', "%$keyword%")
+            ->orwhere('welfare', 'like', "%$keyword%")
+            ->orwhere('description', 'like', "%$keyword%")
+            ->get();
+        }
+        return view('items.search',[
+            'items' => $items,
+            'title' => '検索一覧',
+            ]);
+
+    }
+    
+    public function index($id){
+        $areas_id = Area::all(); //エリアのテーブルの情報取得
+        $area = Area::find($id);
+        $items = Item::where('area_id', '=', "$id")->latest()->get(); //Itemテーブルのarea_idとパラメータのidが一致
         return view('items.index', [
             'title' => '求人一覧',
+            'items' => $items,
+            'areas_id' => $areas_id,
+            'area' => $area,
             ]);
         
     }
+
+    public function category($id){
+        $category_id = Category::all();
+        $category = Category::find($id); //該当のカテゴリを検索
+        $items = Item::where('category_id', '=', $id)->latest()->get();
+
+        return view('items.category',[
+            'title' => '選択エリア求人一覧',
+            'items' => $items,
+            'category' => $category,
+            ]);
+    }
+    
+    public function type($id){
+        $type = Item::TYPE[$id];
+        $items = Item::where('type', '=', $id)->latest()->get();
+        return view('items.type',[
+            'title' => '業種別一覧',
+            'type' => $type,
+            'items' => $items,
+            ]);
+    }
+
+   public function employment($id){
+        $employment = Item::EMPLOYMENT[$id];
+        $items = Item::where('employment', '=', $id)->latest()->get();
+        return view('items.employment',[
+            'title' => '雇用形態別一覧',
+            'employment' => $employment,
+            'items' => $items,
+            ]);
+    }
+
+
     public function create()
     {
+        if(\Auth::user()->id !== 1){
+            abort(403);
+        }
         return view('items.create',[
             'title' => '求人新規登録',
             'areas' => Area::all(),
             'categories' => Category::all(),
             ]);
+        
     }
 
     public function store(ItemRequest $request)
     {
+        $path ='';
+        $image = $request->file('image');
+            if(isset($image) === true){
+                $path = $image->store('photos', 'public');
+            }
+            
         Item::create([
             'company_name' => $request->company_name,
             'shop_name' => $request->shop_name,
@@ -50,10 +142,11 @@ class ItemController extends Controller
             'holiday' => $request->holiday,
             'welfare' => $request->welfare,
             'description' => $request->description,
-            'image' => '',
+            'image' => $path,
             ]);
+
         session()->flash('success', '求人を登録しました');
-        return redirect()->route('items.show', Item::find($request->id));
+        return redirect()->route('items.top');
     }
 
 
@@ -91,6 +184,57 @@ class ItemController extends Controller
 
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        
+        if($item->image !== ''){
+            \Storage::disk('public')->delete($item->image);
+        }
+        $item->delete();
+        \Session::flash('success', '削除しました');
+        return redirect()->route('items.show', $item);
+    }
+    
+    public function toggleLike($id){
+        $user = \Auth::user();
+        $item = Item::find($id);
+        
+        if($item->isLikedBy($user)){
+            $item->likes->where('user_id', $user->id)->first()->delete();
+            \Session::flash('success', '保存を取り消しました');
+        }else{
+            Like::create([
+                'user_id' => $user->id,
+                'item_id' => $item->id,
+                ]);
+            \Session::flash('success', '保存しました');
+        }
+        return redirect()->route('items.show', $item);
+    }
+    
+    public function editImage($id){
+        $item = Item::find($id);
+        return view('items.edit_image',[
+            'title' => '画像変更画面',
+            'item' => $item,
+            ]);
+    }
+    
+    public function updateImage($id, ItemImageRequest $request){
+        $path = '';
+        $image = $request->file('image');
+        
+        if( isset($image) === true ){
+            $path = $image->store('photos', 'public');
+        }
+        $item = Item::find($id);
+        
+        if($item->image !== ''){
+            \Storage::disk('public')->delete(\Storage::url($item->image));
+        }
+        $item->update([
+            'image' => $path,
+            ]);
+        session()->flash('success', '画像を変更しました');
+        return redirect()->route('items.show', $id);
     }
 }
