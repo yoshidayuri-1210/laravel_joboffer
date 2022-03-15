@@ -7,34 +7,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Category;
 use App\Area;
+use App\Order;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password', 'profile', 'category_id', 'area_id', 'birthdate', 'sex'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -47,4 +33,25 @@ class User extends Authenticatable
     public function area(){
         return $this->belongsTo('App\Area');
     }
+    
+    public function like(){
+        return $this->hasMany('App\Like');
+    }
+    public function likeItems(){
+        return $this->belongsToMany('App\Item', 'likes');
+    }
+    
+    public function order(){
+        return $this->hasMany('App\Order');
+    }
+    
+    public function order_items(){
+        return $this->belongsToMany('App\Item', 'orders')->withPivot('created_at')->orderBy('pivot_created_at', 'desc');
+    }
+    
+    public function isOrdering($item){
+        $result = $this->order_items->pluck('id')->contains($item->id);
+        return $result;
+    }
+
 }

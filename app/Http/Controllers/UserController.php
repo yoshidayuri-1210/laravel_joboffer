@@ -10,12 +10,20 @@ use App\Http\Requests\ProfileRequest;
 
 class UserController extends Controller
 {
+    
+        public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
       public function show($id)
     {
         $user = User::find($id);
+        $order_items = $user->order_items()->get();
         return view('users.show',[
             'title' => 'プロフィール',
             'user' => $user,
+            'order_items' => $order_items,
             ]);
     }
 

@@ -8,7 +8,7 @@ use App\Item;
  
 @section('content')
 
-<h1>{{ $area->name }}の求人一覧</h1>
+<h1>{{ $category->name }}の求人一覧</h1>
   @forelse($items as $item) 
   <h3><a href="{{ route('items.show', $item) }}">{{ $item->title }}</a></h3>
     <ul>
