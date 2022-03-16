@@ -8,12 +8,8 @@ use App\Item;
  
 @section('content')
   <h1>{{ $title }}</h1>
-<!--▼フリーワード検索ボックス-->
-  <form method="get" action="{{ route('items.search') }}" class="search">
-    <input type="text" name="keyword">
-    <input type="submit" value="検索">
-  </form>
-<!--▲フリーワード検索ボックス-->
+  
+
 
 <!--▼こだわり条件の最新求人3つ-->
 
