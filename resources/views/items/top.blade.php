@@ -7,20 +7,38 @@ use App\Item;
 @section('title', $title)
  
 @section('content')
-  <h1>{{ $title }}</h1>
-  
 
+<div class="top_search">
+  <!--▼フリーワード検索ボックス-->
+      <form method="get" action="{{ route('items.search') }}" class="search">
+        <input type="text" name="keyword">
+        <input type="submit" value="検索">
+      </form>
+  <!--▲フリーワード検索ボックス-->
+</div>
 
 <!--▼こだわり条件の最新求人3つ-->
-
+<div class="user_category_title">
 <h2>
 @if(!empty(\Auth::user()->category))  
   {{ \Auth::user()->category->name }}
 @endif
 おすすめ新着求人
 </h2>
+</div>
 
+<div class="user_category_items_content">
   @forelse($recommend_category_items as $recommend_category_item)
+
+  <div class="top_category_item_img">
+    @if($recommend_category_item->image !== '')
+      <img src="{{ asset('storage/' . $recommend_category_item->image) }}">
+    @else
+      <img src="{{ asset('storage/images/no_image.png') }}">
+    @endif
+  </div>  
+
+  <div class="test">
   <ul>
   <li>法人名：{{ $recommend_category_item->company_name }}　店舗名：{{ $recommend_category_item->shop_name }}</li>
   <li>{{ $recommend_category_item->title }}</li>
@@ -31,14 +49,19 @@ use App\Item;
   </ul>
   @empty こだわり条件の求人はありません
   @endforelse
+</div>
+</div>
 <!--▲こだわり条件の最新求人3つ-->
 
+
 <!--▼希望エリアの最新求人3つ-->
+<div class="user_area_items">
 @if(!empty(\Auth::user()->area_id))
 <h2>{{ \Auth::user()->area->name }} おすすめ新着求人</h2>
 @else <h2>おすすめ新着求人</h2>
 @endif
-
+</div>
+<div class="user_area_items_content">
   @forelse($recommend_area_items as $recommend_area_item)
   <ul>
   <li>法人名：{{ $recommend_area_item->company_name }}　店舗名：{{ $recommend_area_item->shop_name }}</li>
@@ -51,6 +74,7 @@ use App\Item;
   @empty 希望エリア条件の求人はありません
   @endforelse
 <!--▲希望エリアの最新求人3つ-->
+</div>
 
   <h2>都道府県から探す</h2>
   @foreach($area_ids as $area_id)
