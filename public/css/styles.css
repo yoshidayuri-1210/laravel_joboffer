@@ -1,5 +1,21 @@
 /*アイコンの色は　rgb(136, 211, 241)*/
+header {
+  position: fixed;
+  border-top: solid 10px;
+  border-color: #c2eeff;
+  top: 0;
+  background-color: white;
+  width: 100%;
 
+}
+
+body {
+  margin-top: 80px;
+}
+
+a {
+  text-decoration: none;
+}
 .header_content{
   display: flex;
 }
@@ -16,62 +32,93 @@
 }
 
 .top_search {
-  background-image: url(/storage/images/test.jpg);
+  background-image: url(/storage/images/toppage3.png);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 200px;
+  height: 380px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0px 0px 0px 5px #C2EEFF;
-  border: dashed 2px white;
+  border: dashed 3px #C2EEFF;
 }
 
+.top_search p {
+  margin-top: 120px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #2e4b71;
+}
+.top_search input{
+  margin-top: 15px;
+}
+
+.top_search form {
+  margin-top: 0px;
+}
 .search{
-    background-color: #FFFFFF90;
+    background-color: #FFF5EE;
     font-weight: bold;
-    padding: 20px;
     width: 40%;
-    margin: 0 auto;
-    margin-top: 80px;
+    height: 60px;
+    margin-top: 250px;
     border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .user_category_title {
     background-image: url(/storage/images/icon_heart.png);
     background-repeat: no-repeat;
-    background-position: 10px 10px;
+    background-position: 10px 7px;
     padding-left: 40px;
+    background-size: 21px;
 }
 
 .user_area_items {
     background-image: url(/storage/images/icon_area.png);
     background-repeat: no-repeat;
-    background-position: 10px 10px;
+    background-position: 10px 7px;
     padding-left: 40px;
-    margin-top: 10px;  
+    background-size: 21px;
 }
 
+
+.top_recommend {
+  display: flex;
+}
+.top_img {
+  width: 100px;
+  height: 100px;
+}
+
+.top_img img{
+  width: 100%;
+  height: 100%;
+}
+
+.top_text ul {
+  list-style-type: none;
+  padding-left: 8px;
+  margin-top: 0px;
+}
+
+.top_text h3 {
+  margin: 0px;
+ padding-left: 8px;
+}
 .user_area_items_content {
   display: flex;
 }
 
-.user_category_items_content {
-  display: flex;
+.area_search_title {
+  background-image: url(/storage/images/map_icon.png);
+  background-repeat: no-repeat;
+  background-position: 10px 7px;
+  padding-left: 40px;
+  background-size: 21px;
 }
 
-.test {
-  border: solid 1px #80808052;
-  width: 100%;
-}
 
-.top_category_item_img {
-  width: 300px;
-}
-
-.top_category_item_img img{
-  width: 100%;
-}
 
 
 /* エラーメッセージ用のスタイル */
