@@ -321,9 +321,110 @@ a {
   width: 100%;
 }
 
-.items_content {
+.item_content {
   border: solid;
-  border-color: #c2eeff;
-  border-radius: 5px;
+  border-color: #1e90ff;
+  border-radius: 1px;
   margin-bottom: 50px;
+}
+
+.item_content_title h2{
+  background-color: #f0f8ff;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 5px;
+}
+
+.item_content_title a{
+  color: #1e90ff;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.item_content h3{
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 0;
+  padding-left: 5px;
+  margin-bottom: 2px;
+}
+
+.item_content_employment {
+  background-color: #FF97C2;
+  color: white;
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.item_content_type {
+  background-color: #009999;
+  color: white;
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.item_content_area_id {
+  display: flex;
+  flex: wrap;
+}
+
+.item_content_access {
+  display: flex;
+  flex: wrap;
+}
+
+.item_content_location dt {
+  background-color: white;
+  color: #1e90ff;
+  border: solid;
+  border-color: #1e90ff;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.item_content_area_id {
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.item_content_access {
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.item_content_area_id dd {
+  margin-left: 20px;
+  font-size: 14px;
+}
+.item_content_access dd {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.item_content_img {
+  display: flex;
+  flex: wrap;
+}
+
+.item_content_img img{
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.item_content_img_text {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  height: 100px;
+  width: 80%;
 }
