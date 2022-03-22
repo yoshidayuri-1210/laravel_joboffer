@@ -333,6 +333,7 @@ a {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 5px;
+  padding-bottom: 3px;
 }
 
 .item_content_title a{
@@ -403,6 +404,12 @@ a {
   margin-bottom: 0;
 }
 
+.item_content_area_id dt{
+  padding-left: 7px;
+  padding-right: 9px;
+
+}
+
 .item_content_access {
   margin-top: 3px;
   margin-bottom: 0;
@@ -422,6 +429,7 @@ a {
   flex: wrap;
   margin-top: 10px;
 }
+
 
 .item_content_img img{
   width: 100px;
@@ -480,3 +488,117 @@ a {
   border: none;
   height: 40px;
 }
+
+.show_button button:hover {
+  background-color: #0033FF;
+}
+
+.item_show_container {
+  width: 1200px;
+  margin: 0 auto;
+  border: solid;
+  border-color: #EEEEEE;
+  border-radius: 7px;
+}
+
+.item_show_container h1{
+  margin-left: 10px;
+}
+.item_show_top {
+  display: flex;
+  flex: wrap;
+  margin-left: 10px;
+}
+
+.item_show_top h2{
+  margin-left: 20px;
+}
+
+.item_show_info h2{
+    background-image: url(/storage/images/icon_memo.png);
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    padding-left: 40px;
+    background-size: 25px;
+    border-bottom: solid;
+    border-color: #1e90ff;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.item_show_info dt{
+  background-color: #c2eeff;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.item_show_info dd{
+ margin-left: 0;
+ padding-left: 10px;
+ margin: 10px;
+}
+.item_show_info dl {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item_buttons {
+  width: 80%;
+  display: flex;
+  flex: wrap;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.like_button {
+  width:30%;
+  border: solid;
+  color: #FFAD90;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  border-width: 4px;
+}
+
+.like_button {
+  text-align: center;
+}
+
+.order_button {
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+  background-color: #1e90ff;
+  border: none;
+  height: 45px;
+  width: 70%;
+  margin-top: 5px;
+  padding-top: 12px;
+  border-radius: 10px;
+
+  
+}
+
+.order_button {
+  
+}
+.order_button input{
+  background-color: #1e90ff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.order_button form {
+  text-align: center;
+  padding-left: auto;
+  padding-right: auto;
+}
+
