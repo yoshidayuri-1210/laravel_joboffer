@@ -15,6 +15,7 @@ use App\Item;
         <h3>{{ $like_item->company_name }} {{ $like_item->shop_name }}</h3>
         <span class="item_content_employment">{{ Item::EMPLOYMENT[$like_item->employment] }}</span>
         <span class="item_content_type">{{ Item::TYPE[$like_item->type] }}</span>
+        <span class="item_content_category">{{ $like_item->category->name }}</span></br>
 		<div class="item_content_location">
 			<dl class="item_content_area_id">
 				<dt>勤務地</dt>
@@ -32,13 +33,33 @@ use App\Item;
             @else
               <img src="{{ asset('storage/images/no_image.png') }}">
             @endif
-            <div class="item_content_img_text">
-                {!! nl2br(e($like_item->description)) !!}
+            
+            <div class="item_content_img_table">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>給与</th>
+                        <td>{{ $like_item->payment_min }}円〜{{ $like_item->payment_max }}円</td>
+                    </tr>
+                    <tr>
+                        <th>休日</th>
+                        <td>{{ $like_item->holiday }}日</td>
+                    </tr>
+                    <tr>
+                        <th>福利厚生</th>
+                        <td>{{ $like_item->welfare }}</td>
+                    </tr>
+                </tbody>
+            </table>
             </div>
-        </div>  
-
-        <span>{{ $like_item->category->name }}</span></br>
+        </div>
+        <div class="item_content_description">
+            {!! nl2br(e($like_item->description)) !!}
+        </div>
+        <div class="show_button">
         <button type="button" onclick="location.href='{{ route('items.show', $like_item) }}'">この求人の詳細を見る</button>
+        </div>
+
     </div>
     @empty
         <p>保存した求人はありません</p>
