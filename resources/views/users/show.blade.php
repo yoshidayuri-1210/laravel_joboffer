@@ -3,14 +3,17 @@
 @section('title', $title)
 
 @section('content')
-  <h1>{{ $title }}</h1>
+  <div class="container">
+  <div class="profile">
+
+  <div class="profile_title"><h1>{{ $title }}</h1></div>
   <p>名前：{{ $user->name }}  さん</p>
   <p>希望勤務地：@if(!empty($user->area->name)){{ $user->area->name }}@else希望勤務地設定はありません</p>@endif
   <p>こだわり条件：@if(!empty($user->category->name)){{ $user->category->name }}@elseこだわり条件の設定はありません</p>@endif
   <p>プロフィール：</br>@if(!empty($user->profile)){!! nl2br(e($user->profile)) !!}@elseプロフィールの設定がありません</p>@endif
   <p><a href="{{ route('profile.edit') }}">[編集]</a></p>
-  <h2>応募履歴</h2>
-  
+
+  <div class="profile_order_title"><h1>応募履歴</h1></div>
   @forelse($order_items as $order_item)
   <ul>
     <div class="ordering_list">
@@ -21,4 +24,6 @@
   @empty
     <p>応募企業はありません</p>
   @endforelse
+  </div>
+  </div>
 @endsection
