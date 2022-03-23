@@ -18,6 +18,7 @@ body {
   width: 1200px;
   margin: 0 auto;
 }
+
 a {
   text-decoration: none;
   color: black;
@@ -307,10 +308,6 @@ a {
 
 .delete {
   display: inline;
-}
-
-.ordering_list a{
-  text-decoration: none;
 }
 
 .item_body_main_image {
@@ -676,7 +673,7 @@ a {
     padding-bottom: 1px;
     background-size: 30px;
     background-color: #FFF5EE;
-    border-radius: 10px;
+    border-radius: 10px 10px 10px 0; 
 }
 
 .profile_title h1 {
@@ -688,6 +685,7 @@ a {
     width: 30%;
     background-image: url(/storage/images/icon_order.png);
     background-repeat: no-repeat;
+    margin-top: 30px;
     background-position: 10px 15px;
     padding-left: 50px;
     padding-top: 1px;
@@ -700,4 +698,40 @@ a {
 .profile_order_title h1 {
   font-size: 20px;
   color: #2e4b71;
+
+}
+
+.ordering_list a{
+  text-decoration: underline;
+  color: blue;
+
+}
+.profile_edit_buttun {
+    margin-top: 20px;
+}
+.profile_edit_buttun a{
+  background-color: #136FFF;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.profile_table {
+  margin-bottom: 5px;
+}
+
+.profile_table table{
+  border-spacing: 0;
+
+}
+
+.profile_table th{
+  font-size: 15px;
+  background-color: #f0f8ff;
+  padding: 10px;
+}
+
+.profile_table td{
+  padding-left: 20px;
 }
