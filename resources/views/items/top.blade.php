@@ -7,8 +7,6 @@ use App\Item;
 @section('title', $title)
  
 @section('content')
-
-
 <div class="top_search">
   <!--▼フリーワード検索ボックス-->
   　　<p><img src="{{ asset('/storage/images/search_icon.png') }}">  かんたん求人検索！/</p>
@@ -18,9 +16,7 @@ use App\Item;
       </form>
   <!--▲フリーワード検索ボックス-->
 </div>
-
 <div class="container">
-
 <!--▼こだわり条件の最新求人3つ-->
 <div class="user_category_title">
 <h2>
@@ -30,7 +26,6 @@ use App\Item;
 おすすめ新着求人
 </h2>
 </div>
-
 <div class="top_recommend">
   @forelse($recommend_category_items as $recommend_category_item)
   <a href="{{ route('items.show', $recommend_category_item) }}">
@@ -56,7 +51,6 @@ use App\Item;
   </a>
 </div>
 <!--▲こだわり条件の最新求人3つ-->
-
 
 <!--▼希望エリアの最新求人3つ-->
 <div class="user_area_items">
@@ -142,6 +136,5 @@ use App\Item;
   @endforeach
 </div>
 </div>
- 
 </div>
 @endsection

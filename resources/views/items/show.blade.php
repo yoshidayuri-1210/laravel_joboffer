@@ -1,11 +1,8 @@
 <?php
 use App\Item;
 ?>
-
 @extends('layouts.logged_in')
- 
 @section('title', $title)
- 
 @section('content')
 <div class="item_show_container">
   @if(!empty($item))
@@ -124,7 +121,6 @@ use App\Item;
   @endif
   @else 該当求人はありません
   @endif
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

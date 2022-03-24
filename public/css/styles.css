@@ -1,4 +1,11 @@
 /*アイコンの色は　rgb(136, 211, 241)*/
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}
+
 header {
   position: fixed;
   border-top: solid 10px;
@@ -6,7 +13,6 @@ header {
   top: 0;
   background-color: white;
   width: 100%;
-  
 }
 
 body {
@@ -37,7 +43,6 @@ a {
   list-style: none;
   padding-left: 0;
   margin-left: auto;
-  
 }
 
 .header_nav li {
@@ -61,6 +66,7 @@ a {
   font-size: 30px;
   color: #2e4b71;
 }
+
 .top_search input{
   margin-top: 15px;
 }
@@ -68,6 +74,7 @@ a {
 .top_search form {
   margin-top: 0px;
 }
+
 .search{
     background-color: #FFAD90;
     font-weight: bold;
@@ -98,7 +105,6 @@ a {
     background-size: 21px;
     background-color: #FFE4E1;
     border-radius: 20px;
-
 }
 
 .top_recommend {
@@ -127,6 +133,7 @@ a {
 .top_text_title {
   font-weight: bold;
 }
+
 .top_text ul {
   list-style-type: none;
   padding-left: 8px;
@@ -139,6 +146,7 @@ a {
   font-size: 15px;
   color: #2e4b71;
 }
+
 .user_area_items_content {
   display: flex;
 }
@@ -181,9 +189,7 @@ a {
     color: black;
     padding: 10px;
     display: block;
-    
 }
-
 
 .category_search_title {
   background-image: url(/storage/images/star_icon.png);
@@ -221,7 +227,6 @@ a {
 .category_search_content a{
     text-decoration: none;
     color: black;
-    
     padding: 10px;
     display: block;
 }
@@ -294,16 +299,6 @@ a {
     color: black;
     padding: 10px;
     display: block;
-}
-
-
-/* エラーメッセージ用のスタイル */
-.error {
-  color: red;
-}
-/* 成功メッセージ用のスタイル */
-.success {
-  color: green;
 }
 
 .delete {
@@ -404,7 +399,6 @@ a {
 .item_content_area_id dt{
   padding-left: 7px;
   padding-right: 9px;
-
 }
 
 .item_content_access {
@@ -427,7 +421,6 @@ a {
   margin-top: 10px;
 }
 
-
 .item_content_img img{
   width: 100px;
   height: 100px;
@@ -444,7 +437,6 @@ a {
   height: 100px;
   width: 80%;
 }
-
 
 .item_content_img_table table{
   width: 80%;
@@ -719,11 +711,15 @@ a {
 
 .profile_table {
   margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.company_name input{
+  width: 78%;
 }
 
 .profile_table table{
   border-spacing: 0;
-
 }
 
 .profile_table th{
@@ -742,19 +738,37 @@ a {
 }
 
 .edit_button a{
-  padding: 10px 20px 10px 20px;
+  padding: 13px 20px 15px 20px;
   background-color: #136FFF;
   color: white;
   border-radius: 5px;
-  margin-bottom: 20px;
 }
 
 .edit_button input {
   padding: 13px 20px 12px 20px;
   background-color: #FF3333;
-    color: white;
+  color: white;
   border-radius: 5px;
   margin-bottom: 20px;
   cursor: pointer;
   border: none;
+}
+
+.edit_title {
+  text-align: center;
+  font-size: 15px;
+  background-color: #f0f8ff;
+  width: 100px;
+}
+
+.edit_input {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.edit_image_button a{
+  color: #1e90ff;
+  text-decoration: underline;
+  font-size: 20px;
+  
 }
