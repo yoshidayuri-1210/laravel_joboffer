@@ -11,7 +11,7 @@ use App\Item;
   @if(!empty($item))
     <span class="item_content_employment">{{ Item::EMPLOYMENT[$item->employment] }}</span>
     <span class="item_content_type">{{ Item::TYPE[$item->type] }}</span>
-    <span class="item_content_category">{{ $item->category->name }}</span></br>
+    <span class="item_content_category">{{ $item->category->name }}</span>
 
     <h1>{{ $item->company_name }} {{ $item->shop_name }}</h1></span>
     
@@ -28,26 +28,27 @@ use App\Item;
 
     <!--▼adminユーザーは応募確認画面を表示しない-->
   <div class="item_buttons">
-    <div class="order_button">
-      @if(\Auth::user()->id !== 1)
-      <form method="post" action="{{ route('orders.confirm', $item) }}">
-      　@csrf
-      　@method('patch')
-       　@if($item->isOrderdBy(Auth::user()) === false)
-      <input type="submit" value="応募確認画面へ">
-      　 @else
-      　 応募済み
-      　 @endif
-      </form>
-      @endif
-    </div>
-<!--▲adminユーザーは応募確認画面を表示しない-->
-
     <a class="like_button">{{ $item->isLikedBy(Auth::user()) ? '★ 保存済み' : '☆ 保存する' }}</a>
     <form method="post" action="{{ route('items.toggle_like', $item) }}">
       @csrf
       @method('patch')
     </form>
+
+
+      @if(\Auth::user()->id !== 1)
+          <div class="order_button">
+        <form method="post" action="{{ route('orders.confirm', $item) }}">
+        　@csrf
+        　@method('patch')
+           　@if($item->isOrderdBy(Auth::user()) === false)
+          <input type="submit" value="応募確認画面へ">
+          　 @else
+          　 応募済み
+          　 @endif
+        </form>
+      @endif
+    </div>
+    <!--▲adminユーザーは応募確認画面を表示しない-->
   </div>
     
     <div class="item_show_info">
@@ -111,13 +112,15 @@ use App\Item;
       </dl>
     </div>
 
+<div class="edit_button">
   @if(\Auth::user()->id === 1)
-  [<a href="{{ route('items.edit', $item) }}">編集</a>]
+  <a href="{{ route('items.edit', $item) }}">編集</a>
   <form method="post" class="delete" action="{{ route('items.destroy', $item) }}">
     @csrf
     @method('delete')
     <input type="submit" value="削除">
   </form>
+</div>
   @endif
   @else 該当求人はありません
   @endif

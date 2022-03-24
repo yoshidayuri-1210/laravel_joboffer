@@ -16,6 +16,11 @@
                         <td>{{ $user->name }} さん</td>
                     </tr>
                     <tr>
+                        <th>生年月日</th>
+                        <td>{{ $user->birthdate }}</td>
+                    </tr>
+                    
+                    <tr>
                         <th>希望勤務地</th>
                         <td>@if(!empty($user->area->name)){{ $user->area->name }}@else希望勤務地設定はありません@endif</td>
                     </tr>
