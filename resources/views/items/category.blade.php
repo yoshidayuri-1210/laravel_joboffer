@@ -3,9 +3,7 @@ use App\Item;
 ?>
 
 @extends('layouts.logged_in')
- 
 @section('title', $title)
- 
 @section('content')
 
 <h1>{{ $category->name }}の求人一覧</h1>

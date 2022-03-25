@@ -9,9 +9,7 @@ use App\Item;
     <span class="item_content_employment">{{ Item::EMPLOYMENT[$item->employment] }}</span>
     <span class="item_content_type">{{ Item::TYPE[$item->type] }}</span>
     <span class="item_content_category">{{ $item->category->name }}</span>
-
     <h1>{{ $item->company_name }} {{ $item->shop_name }}</h1></span>
-    
     <div class="item_show_top">
       <div class="item_body_main_image">
         @if($item->image !== '')
@@ -22,7 +20,6 @@ use App\Item;
       </div>
       <h2>{{ $item->title }}</h2>
     </div>
-
     <!--▼adminユーザーは応募確認画面を表示しない-->
   <div class="item_buttons">
     <a class="like_button">{{ $item->isLikedBy(Auth::user()) ? '★ 保存済み' : '☆ 保存する' }}</a>
@@ -30,7 +27,6 @@ use App\Item;
       @csrf
       @method('patch')
     </form>
-
 
       @if(\Auth::user()->id !== 1)
           <div class="order_button">
@@ -119,7 +115,7 @@ use App\Item;
   </form>
 </div>
   @endif
-  @else 該当求人はありません
+  @else<p>該当求人はありません</p>
   @endif
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

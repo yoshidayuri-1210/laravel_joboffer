@@ -1,7 +1,5 @@
 @extends('layouts.logged_in')
- 
 @section('title', $title)
-
 @section('content')
   <h1>{{ $title }}</h1>
   <form method="post" action="{{ route('items.store') }}" enctype="multipart/form-data">
@@ -15,13 +13,13 @@
                 </tr>
                 <tr>
                     <th>店舗名</th>
-                    <td><input type="text" name="shop_name"></td>
+                    <td><div class="company_name"><input type="text" name="shop_name"></div></td>
                 </tr>
                 <tr>
                     <th>タイトル</th><td><textarea name="title" rows="2" cols="50"></textarea></td>
                 </tr>
                 <tr>
-                    <th>業種:</th>
+                    <th>業種</th>
                     <td>
                         <label><input type="radio" name="type" value="1">調剤薬局</label>
                         <label><input type="radio" name="type" value="2">病院・クリニック</label>
@@ -40,7 +38,6 @@
                     </select>
                     </td>
                 </tr>
-
                 <tr>
                     <th>最寄駅</th>
                     <td><input type="text" name="access" placeholder="例) JR線 大阪駅"></td>

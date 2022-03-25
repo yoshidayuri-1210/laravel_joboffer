@@ -57,10 +57,10 @@ class Item extends Model
     //scopeの設定
     //$idは、該当ユーザーのcategory_id
     public function scopeRecommend($query, $id){
-        return $query->where('category_id', '=', $id)->latest()->limit(3);
+        return $query->where('category_id', '=', $id)->latest();
     }
 
     public function scopeRecommendarea($query, $id){
-        return $query->where('area_id', '=', $id)->latest()->limit(3);
+        return $query->where('area_id', '=', $id)->latest();
     }
 }

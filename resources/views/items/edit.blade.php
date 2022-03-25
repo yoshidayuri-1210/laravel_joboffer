@@ -30,7 +30,6 @@
                         <label><input type="radio" name="type" value="4" @if($item->type === 4 ) checked @endif>一般企業</label>
                     </td>
                 </tr>
-
                 <tr>
                     <th>就業エリア</th>
                     <td>
