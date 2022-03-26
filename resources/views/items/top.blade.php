@@ -14,7 +14,7 @@ use App\Item;
 <div class="top_search">
   <!--▼フリーワード検索ボックス-->
       <div class="top_icon_searchbox">
-      <img src="{{ asset('/storage/images/search_icon.png') }}">
+      <img src="{{ asset('images/search_icon.png') }}">
       <div class="top_icon_searchbox_right">
   　　<p>かんたん求人検索！/</p>
       <form method="get" action="{{ route('items.search') }}" class="search">
@@ -47,7 +47,7 @@ use App\Item;
     @if($recommend_category_item->image !== '')
       <img src="{{ asset('storage/' . $recommend_category_item->image) }}">
     @else
-      <img src="{{ asset('storage/images/no_image.png') }}">
+      <img src="{{ asset('images/no_image.png') }}">
     @endif
   </div>  
 
@@ -81,7 +81,7 @@ use App\Item;
     @if($recommend_area_item->image !== '')
       <img src="{{ asset('storage/' . $recommend_area_item->image) }}">
     @else
-      <img src="{{ asset('storage/images/no_image.png') }}">
+      <img src="{{ asset('images/no_image.png') }}">
     @endif
   </div>  
   <div class="top_text">

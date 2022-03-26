@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -24,20 +23,18 @@ class ItemController extends Controller
         $user = \Auth::user();
         $types = Item::TYPE;
         $employments = Item::EMPLOYMENT;
-        
         return view('items.top', [
-            'title' => '求人一覧.検索',
+            'title' => '求人検索',
             'area_ids' => Area::all(), 
             'categories' => Category::all(),
             'types' => $types, 
             'employments' => $employments,
-            
             // Itemsにあるスコープrecommendを利用
             'recommend_category_items' => Item::recommend($user->category_id)->get(),
             'recommend_area_items' => Item::recommendarea($user->area_id)->get(),
             ]);
     }
-    
+
     public function search(Request $request){
         $items = Item::all();
         $keyword = $request->input('keyword');
@@ -58,7 +55,6 @@ class ItemController extends Controller
             'items' => $items,
             'title' => '検索一覧',
             ]);
-
     }
     
     public function index($id){
@@ -80,7 +76,7 @@ class ItemController extends Controller
         $items = Item::where('category_id', '=', $id)->latest()->get();
 
         return view('items.category',[
-            'title' => '選択エリア求人一覧',
+            'title' => '求人一覧',
             'items' => $items,
             'category' => $category,
             ]);
@@ -90,7 +86,7 @@ class ItemController extends Controller
         $type = Item::TYPE[$id];
         $items = Item::where('type', '=', $id)->latest()->get();
         return view('items.type',[
-            'title' => '業種別一覧',
+            'title' => '業種別求人一覧',
             'type' => $type,
             'items' => $items,
             ]);
@@ -100,7 +96,7 @@ class ItemController extends Controller
         $employment = Item::EMPLOYMENT[$id];
         $items = Item::where('employment', '=', $id)->latest()->get();
         return view('items.employment',[
-            'title' => '雇用形態別一覧',
+            'title' => '雇用形態別求人一覧',
             'employment' => $employment,
             'items' => $items,
             ]);

@@ -1,6 +1,9 @@
 <?php
+
 Route::get('/', 'ItemController@top')->name('items.top');
+
 Auth::routes();
+
 //求人投稿
 Route::resource('items', 'ItemController');
 //いいね求人

@@ -27,7 +27,7 @@ use App\Item;
             @if($like_item->image !== '')
               <img src="{{ asset('storage/' . $like_item->image) }}">
             @else
-              <img src="{{ asset('storage/images/no_image.png') }}">
+              <img src="{{ asset('images/no_image.png') }}">
             @endif
             <div class="item_content_img_table">
             <table>

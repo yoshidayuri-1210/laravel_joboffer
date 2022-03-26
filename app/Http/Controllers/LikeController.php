@@ -18,7 +18,7 @@ class LikeController extends Controller
     {   
         $like_items = \Auth::user()->likeItems;
         return view('likes.index', [
-          'title' => '気になる求人一覧',
+          'title' => '保存求人一覧',
           'like_items' => $like_items,
         ]);
     }

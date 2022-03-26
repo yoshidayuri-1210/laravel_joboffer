@@ -12,7 +12,7 @@ use App\Item;
       @if($item->image !== '')
       <img src="{{ asset('storage/' . $item->image) }}">
       @else
-      <img src="{{ asset('storage/images/no_image.png') }}">
+      <img src="{{ asset('images/no_image.png') }}">
       @endif
     </div>      
     <div class="confirm_img_text">

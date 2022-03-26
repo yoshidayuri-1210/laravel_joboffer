@@ -87,7 +87,7 @@
                     @if($item->image !== '')
                         <img src="{{ \Storage::url($item->image) }}">
                     @else
-                        <img src="{{ asset('/storage/images/no_image.png') }}">
+                        <img src="{{ asset('images/no_image.png') }}">
                     @endif
                     <span class="edit_image_button"><a href="{{ route('items.edit_image', $item) }}">画像を変更</a></span>
                     </td>
