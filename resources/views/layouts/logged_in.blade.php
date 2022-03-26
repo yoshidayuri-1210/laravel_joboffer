@@ -1,10 +1,8 @@
 @extends('layouts.default')
 @section('header')
-
 <header>
     <div class="header_content">
-    <p>{{ Auth::user()->name }}さん、こんにちは！</p>
-    
+    <p><a href="{{ route('items.top') }}">{{ Auth::user()->name }}さん、こんにちは！</a></p>
     <ul class="header_nav">
         <li><a href="{{ route('items.top')}}">TOP</a></li>
         <li>
@@ -21,8 +19,6 @@
             </form>
         </li>
     </ul>
-
-</div>
-
+    </div>
 </header>
 @endsection

@@ -82,7 +82,7 @@ use App\Item;
       <dd class="item_show_info_text_empty">----</dd>
       @endif
 
-      <dt class="item_show_info_title">休日</dt>
+      <dt class="item_show_info_title">年間休日</dt>
       @if(!empty($item->holiday))
       <dd class="item_show_info_text">{{ $item->holiday }} 日</dd>
       @else

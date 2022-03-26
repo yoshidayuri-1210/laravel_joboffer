@@ -85,6 +85,6 @@
             </tbody>
         </table>
     </div>
-    <input type="submit" value="登録">
+    <input type="submit" value="登録" class="edit_input">
   </form>
 @endsection

@@ -1,7 +1,5 @@
 @extends('layouts.logged_in')
- 
 @section('title', $title)
- 
 @section('content')
   @if(!empty($item))
     <h1>{{ $title }}</h1>
@@ -19,6 +17,4 @@
       <p>福利厚生：{{ $item->welfare }}</p>
   @else 該当求人はありません
   @endif
-
-
 @endsection

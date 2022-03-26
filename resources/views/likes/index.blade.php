@@ -1,11 +1,8 @@
 <?php
 use App\Item;
 ?>
-
 @extends('layouts.logged_in')
- 
 @section('title', $title)
- 
 @section('content')
     <h1>保存した求人一覧</h1>
     <div class="container">
@@ -26,14 +23,12 @@ use App\Item;
 				<dd>{{ $like_item->access }}</dd>
 			</dl>
 		</div>
-        
         <div class="item_content_img">
             @if($like_item->image !== '')
               <img src="{{ asset('storage/' . $like_item->image) }}">
             @else
               <img src="{{ asset('storage/images/no_image.png') }}">
             @endif
-            
             <div class="item_content_img_table">
             <table>
                 <tbody>
@@ -42,7 +37,7 @@ use App\Item;
                         <td>{{ $like_item->payment_min }}円〜{{ $like_item->payment_max }}円</td>
                     </tr>
                     <tr>
-                        <th>休日</th>
+                        <th>年間休日</th>
                         <td>{{ $like_item->holiday }}日</td>
                     </tr>
                     <tr>
@@ -59,7 +54,6 @@ use App\Item;
         <div class="show_button">
         <button type="button" onclick="location.href='{{ route('items.show', $like_item) }}'">この求人の詳細を見る</button>
         </div>
-
     </div>
     @empty
         <p>保存した求人はありません</p>

@@ -22,6 +22,7 @@ class ItemRequest extends FormRequest
             'category_id' => ['required'],
             'payment_min' => ['integer', 'min:0'],
             'payment_max' => ['integer', 'min:0'],
+            'holiday' => ['integer', 'min:0'],
             'image' => [
                 'file', 'image', 'mimes:jpeg,jpg,png', 'dimensions:min_width=50, max_wodth=1000, max_height=1000'
                 ],

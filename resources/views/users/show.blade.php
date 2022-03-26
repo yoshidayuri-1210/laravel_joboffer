@@ -1,13 +1,9 @@
 @extends('layouts.logged_in')
- 
 @section('title', $title)
-
 @section('content')
   <div class="container">
   <div class="profile">
-
   <div class="profile_title"><h1>{{ $title }}</h1></div>
-
   <div class="profile_table">
             <table>
                 <tbody>
@@ -19,7 +15,6 @@
                         <th>生年月日</th>
                         <td>{{ $user->birthdate }}</td>
                     </tr>
-                    
                     <tr>
                         <th>希望勤務地</th>
                         <td>@if(!empty($user->area->name)){{ $user->area->name }}@else希望勤務地設定はありません@endif</td>
@@ -35,10 +30,7 @@
                 </tbody>
             </table>
             </div>
-  
-  
   <div class="profile_edit_buttun"><a href="{{ route('profile.edit') }}">編集</a></div>
-
   <div class="profile_order_title"><h1>応募履歴</h1></div>
   @forelse($order_items as $order_item)
   <ul>

@@ -11,11 +11,11 @@
             <tbody>
                 <tr>
                     <th>法人名</th>
-                    <td><input type="text" name="company_name" value="{{ $item->company_name}}"></td>
+                    <td><div class="company_name"><input type="text" name="company_name" value="{{ $item->company_name}}"></div></td>
                 </tr>
                 <tr>
                     <th>店舗名</th>
-                    <td><input type="text" name="shop_name" value="{{ $item->shop_name}}"></td>
+                    <td><div class="company_name"><input type="text" name="shop_name" value="{{ $item->shop_name}}"></div></td>
                 </tr>
                 <tr>
                     <th>タイトル</th>

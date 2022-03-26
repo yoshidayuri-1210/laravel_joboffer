@@ -1,13 +1,9 @@
 <?php
 use App\Item;
 ?>
-
 @extends('layouts.logged_in')
- 
 @section('title', $title)
- 
 @section('content')
-
 <h1>{{ $type }}の求人一覧</h1>
 <div class="container">
   @forelse($items as $item)
@@ -27,7 +23,6 @@ use App\Item;
 				<dd>{{ $item->access }}</dd>
 			</dl>
 		</div>
-
       <div class="item_content_img">
           @if($item->image !== '')
             <img src="{{ asset('storage/' . $item->image) }}">
@@ -42,7 +37,7 @@ use App\Item;
                         <td>{{ $item->payment_min }}円〜{{ $item->payment_max }}円</td>
                     </tr>
                     <tr>
-                        <th>休日</th>
+                        <th>年間休日</th>
                         <td>{{ $item->holiday }}日</td>
                     </tr>
                     <tr>
@@ -56,11 +51,9 @@ use App\Item;
         <div class="item_content_description">
             {!! nl2br(e($item->description)) !!}
         </div>
-
         <div class="show_button">
         <button type="button" onclick="location.href='{{ route('items.show', $item) }}'">この求人の詳細を見る</button>
         </div>
-
   </div>
   @empty 求人がありません
   @endforelse

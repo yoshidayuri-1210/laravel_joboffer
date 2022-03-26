@@ -1,5 +1,4 @@
 @extends('layouts.default')
-
 @section('header')
 <header>
     <ul class="header_nav">

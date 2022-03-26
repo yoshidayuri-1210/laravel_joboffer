@@ -42,7 +42,7 @@ use App\Item;
                         <td>{{ $item->payment_min }}円〜{{ $item->payment_max }}円</td>
                     </tr>
                     <tr>
-                        <th>休日</th>
+                        <th>年間休日</th>
                         <td>{{ $item->holiday }}日</td>
                     </tr>
                     <tr>
