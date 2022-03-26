@@ -1,0 +1,23 @@
+add commit push をする。
+
+ssh -i ~/.ssh/conoha.pem -p 8022 c2318705@yuriume.com
+
+[c2318705@web0289 ~]$ cd laravel_projects/
+[c2318705@web0289 laravel_projects]$ ls
+laravel_joboffer
+[c2318705@web0289 laravel_projects]$ cd laravel_joboffer/
+[c2318705@web0289 laravel_joboffer]$ git branch
+* main
+[c2318705@web0289 laravel_joboffer]$ git pull
+
+〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+画像のフォルダを反映させた時：
+
+[c2318705@web0289 laravel_joboffer]$ cd
+[c2318705@web0289 ~]$ ls
+composer.phar  laravel_projects  logs  perl5  public_html
+[c2318705@web0289 ~]$ cd public_html/
+[c2318705@web0289 public_html]$ ls
+yuriume.com  yuriume.conohawing.com
+[c2318705@web0289 public_html]$ cd yuriume.com
+[c2318705@web0289 yuriume.com]$ ln -s ~/laravel_projects/laravel_joboffer/public/images ./images
