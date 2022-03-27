@@ -37,19 +37,28 @@ class ItemController extends Controller
 
     public function search(Request $request){
         $items = Item::all();
+        $types = Item::TYPE;
+        $employments = Item::EMPLOYMENT;
         $keyword = $request->input('keyword');
+
+        foreach($employments as $employment){
         if(!empty($keyword)){
             $items = Item::where('company_name', 'like', "%$keyword%")
             ->orwhere('title', 'like', "%$keyword%")
             ->orwhere('shop_name', 'like', "%$keyword%")
-            ->orwhere('shop_name', 'like', "%$keyword%")
+            ->orwhere('title', 'like', "%$keyword%")
             ->orwhere('access', 'like', "%$keyword%")
             ->orwhere('payment_min', 'like', "%$keyword%")
             ->orwhere('payment_max', 'like', "%$keyword%")
             ->orwhere('holiday', 'like', "%$keyword%")
             ->orwhere('welfare', 'like', "%$keyword%")
             ->orwhere('description', 'like', "%$keyword%")
+            ->orwhere("$employment", 'like', "%$keyword%")
+            ->join('areas', 'areas.id', '=', 'items.area_id')
+            // ->join('categories', 'categories.id', '=', 'items.category_id')
+            ->orwhere('name', 'like', "%$keyword%")
             ->get();
+        }
         }
         return view('items.search',[
             'items' => $items,

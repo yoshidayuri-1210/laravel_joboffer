@@ -1,3 +1,6 @@
+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
+
+=============
 add commit push をする。
 
 ssh -i ~/.ssh/conoha.pem -p 8022 c2318705@yuriume.com
