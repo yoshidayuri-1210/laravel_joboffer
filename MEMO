@@ -21,3 +21,7 @@ composer.phar  laravel_projects  logs  perl5  public_html
 yuriume.com  yuriume.conohawing.com
 [c2318705@web0289 public_html]$ cd yuriume.com
 [c2318705@web0289 yuriume.com]$ ln -s ~/laravel_projects/laravel_joboffer/public/images ./images
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+リフレッシュする時　HP
+コマンドとシフトとアールを一緒におす
